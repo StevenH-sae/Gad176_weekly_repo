@@ -2,11 +2,8 @@ using UnityEngine;
 
 namespace SAE.GAD176.Tutorials.Inheritance
 {
-    public class Enemy : MonoBehaviour
+    public class SmartEnemy : FastEnemy
     {
-        protected Player playerReference;
-        [SerializeField] private float playerHealth = 100f;
-        
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -16,22 +13,20 @@ namespace SAE.GAD176.Tutorials.Inheritance
         // Update is called once per frame
         void Update()
         {
-            Shout();
+            // RunAtPlayer function is getting from FastEnemy class which is also Inheritance from enemy class
+            RunAtPlayer();
+            HitPlayer();
         }
-        protected void Shout()
+
+        protected void HitPlayer()
         {
             if (playerReference)
             {
-                if (Vector3.Distance(transform.position, playerReference.transform.position) < 5)
+                if (Vector3.Distance(transform.position, playerReference.transform.position) < 1)
                 {
-                    Debug.Log("Too close!" + transform.name);
+                    Debug.Log("Hit the Player! Arrrgh you Basterd!");
                 }
             }
-        }
-
-        public void ChangeHealth(float amount)
-        {
-            playerHealth += amount;
         }
     }
 }
