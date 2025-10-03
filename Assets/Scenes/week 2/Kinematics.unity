@@ -672,7 +672,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 619276623}
   moveSpeed: 0.7
-  referenceVelocity: {x: 0, y: 0, z: 0}
   smoothness: 100
   targetRotation: {x: 0, y: 180, z: 0}
   targetScale: {x: 0, y: 0, z: 0}
