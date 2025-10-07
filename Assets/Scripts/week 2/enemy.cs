@@ -8,28 +8,29 @@ namespace SAE.GAD176.Tutorials.Inheritance
         [SerializeField] private float playerHealth = 100f;
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        protected virtual void Start()
         {
             playerReference = FindObjectOfType<Player>();
+            Shout();
         }
 
         // Update is called once per frame
-        void Update()
+        protected virtual void Update()
         {
-            Shout();
+            
         }
-        protected void Shout()
+        protected virtual void Shout()
         {
             if (playerReference)
             {
                 if (Vector3.Distance(transform.position, playerReference.transform.position) < 5)
                 {
-                    Debug.Log("Too close!" + transform.name);
+                    Debug.Log("Too close! " + transform.name);
                 }
             }
         }
 
-        public void ChangeHealth(float amount)
+        public virtual void ChangeHealth(float amount)
         {
             playerHealth += amount;
         }
